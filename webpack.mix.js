@@ -8,6 +8,12 @@ mix.options({
     postCss: [require('tailwindcss')],
 });
 
+mix.webpackConfig({
+    output: {
+        chunkFilename: 'js/chunks/[name].chunk.js?id=[contenthash]',
+    },
+});
+
 mix.before(() => {
     fs.rmdirSync(path.resolve('dist/js'), { recursive: true });
 });
